@@ -40,7 +40,7 @@ tickets FR générés ────┘                              │
 | `api/` | API FastAPI | 9 |
 | `app/` | Démo Streamlit | 9 |
 | `tests/` | Tests (pytest), lancés par la CI | 10 |
-| `docs/` | Journal de bord, fiche projet, bilan | tout du long |
+| `docs/` | Plan (`plan.md`), journal de bord, fiche projet, bilan | tout du long |
 
 Schémas PostgreSQL : `raw` (données brutes), `staging` et `marts` (dbt),
 `ops` (journal des prédictions).
@@ -61,8 +61,9 @@ uv sync
 copy .env.example .env
 docker compose up -d
 
-# 4. Modèles locaux (choisir un modèle instruct 7-8B récent dans la bibliothèque Ollama)
-ollama pull <modele-instruct-7b>
+# 4. Modèles locaux, puis OLLAMA_CHAT_MODEL=ministral-3:8b dans .env
+ollama pull ministral-3:8b
+ollama pull qwen3.5:9b
 ollama pull nomic-embed-text
 
 # 5. Vérification
