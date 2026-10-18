@@ -1,0 +1,24 @@
+[project]
+name = "ticket-triage-ia"
+version = "0.1.0"
+description = "Tri automatique de tickets de support IT : baseline ML vs LLM local, RAG, API."
+requires-python = ">=3.12"
+dependencies = [
+    "psycopg[binary]>=3.2",
+    "python-dotenv>=1.0",
+    "httpx>=0.27",
+    "pandas>=2.2",
+]
+
+[dependency-groups]
+# Added as the weeks go: `uv sync --group data` etc.
+data = ["datasets>=3.0", "dbt-postgres>=1.8"]
+ml = ["scikit-learn>=1.5"]
+serve = ["fastapi>=0.115", "uvicorn>=0.30", "streamlit>=1.38"]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.ruff]
+line-length = 100
