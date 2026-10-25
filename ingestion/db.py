@@ -1,7 +1,6 @@
 import os
 
 import psycopg
-from dbt.cli.params import host
 from dotenv import load_dotenv
 
 load_dotenv()
